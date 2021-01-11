@@ -35,20 +35,22 @@ namespace Gestion
             this.delete = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
             this.listInput = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inputV = new System.Windows.Forms.TextBox();
+            this.inputA = new System.Windows.Forms.TextBox();
+            this.inputN = new System.Windows.Forms.TextBox();
+            this.inputP = new System.Windows.Forms.TextBox();
             this.ville = new System.Windows.Forms.Label();
             this.adress = new System.Windows.Forms.Label();
-            this.nom = new System.Windows.Forms.Label();
             this.prenom = new System.Windows.Forms.Label();
             this.listClient = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listNom = new System.Windows.Forms.ComboBox();
             this.client = new System.Windows.Forms.Label();
+            this.list = new System.Windows.Forms.DataGridView();
+            this.nom = new System.Windows.Forms.Label();
             this.listbox.SuspendLayout();
             this.listInput.SuspendLayout();
             this.listClient.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.list)).BeginInit();
             this.SuspendLayout();
             // 
             // listbox
@@ -73,6 +75,7 @@ namespace Gestion
             this.save.TabIndex = 7;
             this.save.Text = "Enregister";
             this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // update
             // 
@@ -82,6 +85,7 @@ namespace Gestion
             this.update.TabIndex = 5;
             this.update.Text = "Modifier";
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // delete
             // 
@@ -91,6 +95,7 @@ namespace Gestion
             this.delete.TabIndex = 4;
             this.delete.Text = "Supprimer";
             this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // add
             // 
@@ -100,17 +105,18 @@ namespace Gestion
             this.add.TabIndex = 0;
             this.add.Text = "Ajouter";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // listInput
             // 
             this.listInput.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.listInput.Controls.Add(this.textBox4);
-            this.listInput.Controls.Add(this.textBox3);
-            this.listInput.Controls.Add(this.textBox2);
-            this.listInput.Controls.Add(this.textBox1);
+            this.listInput.Controls.Add(this.nom);
+            this.listInput.Controls.Add(this.inputV);
+            this.listInput.Controls.Add(this.inputA);
+            this.listInput.Controls.Add(this.inputN);
+            this.listInput.Controls.Add(this.inputP);
             this.listInput.Controls.Add(this.ville);
             this.listInput.Controls.Add(this.adress);
-            this.listInput.Controls.Add(this.nom);
             this.listInput.Controls.Add(this.prenom);
             this.listInput.Location = new System.Drawing.Point(68, 47);
             this.listInput.Name = "listInput";
@@ -120,33 +126,33 @@ namespace Gestion
             this.listInput.Text = "Client Info";
             this.listInput.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox4
+            // inputV
             // 
-            this.textBox4.Location = new System.Drawing.Point(186, 221);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(215, 22);
-            this.textBox4.TabIndex = 60;
+            this.inputV.Location = new System.Drawing.Point(186, 221);
+            this.inputV.Name = "inputV";
+            this.inputV.Size = new System.Drawing.Size(215, 22);
+            this.inputV.TabIndex = 3;
             // 
-            // textBox3
+            // inputA
             // 
-            this.textBox3.Location = new System.Drawing.Point(186, 165);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(215, 22);
-            this.textBox3.TabIndex = 59;
+            this.inputA.Location = new System.Drawing.Point(186, 165);
+            this.inputA.Name = "inputA";
+            this.inputA.Size = new System.Drawing.Size(215, 22);
+            this.inputA.TabIndex = 2;
             // 
-            // textBox2
+            // inputN
             // 
-            this.textBox2.Location = new System.Drawing.Point(186, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 22);
-            this.textBox2.TabIndex = 58;
+            this.inputN.Location = new System.Drawing.Point(186, 104);
+            this.inputN.Name = "inputN";
+            this.inputN.Size = new System.Drawing.Size(215, 22);
+            this.inputN.TabIndex = 1;
             // 
-            // textBox1
+            // inputP
             // 
-            this.textBox1.Location = new System.Drawing.Point(186, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 22);
-            this.textBox1.TabIndex = 57;
+            this.inputP.Location = new System.Drawing.Point(186, 45);
+            this.inputP.Name = "inputP";
+            this.inputP.Size = new System.Drawing.Size(215, 22);
+            this.inputP.TabIndex = 0;
             // 
             // ville
             // 
@@ -166,15 +172,6 @@ namespace Gestion
             this.adress.TabIndex = 55;
             this.adress.Text = "Adresse :";
             // 
-            // nom
-            // 
-            this.nom.AutoSize = true;
-            this.nom.Location = new System.Drawing.Point(92, 107);
-            this.nom.Name = "nom";
-            this.nom.Size = new System.Drawing.Size(49, 17);
-            this.nom.TabIndex = 54;
-            this.nom.Text = "Nom  :";
-            // 
             // prenom
             // 
             this.prenom.AutoSize = true;
@@ -187,8 +184,8 @@ namespace Gestion
             // listClient
             // 
             this.listClient.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.listClient.Controls.Add(this.listNom);
             this.listClient.Controls.Add(this.client);
-            this.listClient.Controls.Add(this.comboBox1);
             this.listClient.Location = new System.Drawing.Point(68, 412);
             this.listClient.Name = "listClient";
             this.listClient.Size = new System.Drawing.Size(476, 152);
@@ -197,13 +194,14 @@ namespace Gestion
             this.listClient.Text = "Client List";
             this.listClient.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
-            // comboBox1
+            // listNom
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(295, 24);
-            this.comboBox1.TabIndex = 0;
+            this.listNom.FormattingEnabled = true;
+            this.listNom.Location = new System.Drawing.Point(140, 68);
+            this.listNom.Name = "listNom";
+            this.listNom.Size = new System.Drawing.Size(311, 24);
+            this.listNom.TabIndex = 62;
+            this.listNom.SelectedIndexChanged += new System.EventHandler(this.listNom_SelectedIndexChanged);
             // 
             // client
             // 
@@ -215,12 +213,33 @@ namespace Gestion
             this.client.TabIndex = 61;
             this.client.Text = "Choisir :";
             // 
+            // list
+            // 
+            this.list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.list.Location = new System.Drawing.Point(622, 370);
+            this.list.Name = "list";
+            this.list.RowHeadersWidth = 51;
+            this.list.RowTemplate.Height = 24;
+            this.list.Size = new System.Drawing.Size(811, 150);
+            this.list.TabIndex = 55;
+            this.list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.list_CellContentClick);
+            // 
+            // nom
+            // 
+            this.nom.AutoSize = true;
+            this.nom.Location = new System.Drawing.Point(93, 109);
+            this.nom.Name = "nom";
+            this.nom.Size = new System.Drawing.Size(37, 17);
+            this.nom.TabIndex = 57;
+            this.nom.Text = "Nom";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(980, 615);
+            this.ClientSize = new System.Drawing.Size(1462, 615);
+            this.Controls.Add(this.list);
             this.Controls.Add(this.listClient);
             this.Controls.Add(this.listInput);
             this.Controls.Add(this.listbox);
@@ -232,6 +251,7 @@ namespace Gestion
             this.listInput.PerformLayout();
             this.listClient.ResumeLayout(false);
             this.listClient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.list)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,17 +264,18 @@ namespace Gestion
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.GroupBox listInput;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inputV;
+        private System.Windows.Forms.TextBox inputA;
+        private System.Windows.Forms.TextBox inputN;
+        private System.Windows.Forms.TextBox inputP;
         private System.Windows.Forms.Label ville;
         private System.Windows.Forms.Label adress;
-        private System.Windows.Forms.Label nom;
         private System.Windows.Forms.Label prenom;
         private System.Windows.Forms.GroupBox listClient;
         private System.Windows.Forms.Label client;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox listNom;
+        private System.Windows.Forms.DataGridView list;
+        private System.Windows.Forms.Label nom;
     }
 }
 
