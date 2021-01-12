@@ -23,8 +23,8 @@ namespace Gestion
             FillClient();
             Ado.DtClient = Ado.Ds.Tables[0];
             Ado.DtClient.TableName = "Client";
-            this.listNom.DataSource = Ado.DtClient;
             this.list.DataSource = Ado.DtClient;
+            this.listNom.DataSource = Ado.DtClient;
             this.listNom.DisplayMember = Ado.DtClient.Columns[5].ColumnName; // "prenom" pour eviter la situation de changement du name of column
             this.listNom.ValueMember = Ado.DtClient.Columns[0].ColumnName;  //" id"
             this.listNom.SelectedIndex = -1;  // pour eviter l'affichage d'un element par defaut sur la list

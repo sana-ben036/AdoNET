@@ -196,6 +196,7 @@ namespace Gestion
             // 
             // listNom
             // 
+            this.listNom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.listNom.FormattingEnabled = true;
             this.listNom.Location = new System.Drawing.Point(140, 68);
             this.listNom.Name = "listNom";

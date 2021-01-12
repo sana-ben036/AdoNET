@@ -31,13 +31,15 @@ namespace Gestion
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listClient = new System.Windows.Forms.DataGridView();
+            this.listVille = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listClient)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 32);
+            this.label1.Location = new System.Drawing.Point(23, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 1;
@@ -56,12 +58,33 @@ namespace Gestion
             this.listClient.TabIndex = 2;
             this.listClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listClient_CellContentClick);
             // 
+            // listVille
+            // 
+            this.listVille.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listVille.FormattingEnabled = true;
+            this.listVille.Location = new System.Drawing.Point(474, 39);
+            this.listVille.Name = "listVille";
+            this.listVille.Size = new System.Drawing.Size(226, 24);
+            this.listVille.TabIndex = 3;
+            this.listVille.SelectedIndexChanged += new System.EventHandler(this.listVille_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(344, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Selectioner la Ville";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(967, 537);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listVille);
             this.Controls.Add(this.listClient);
             this.Controls.Add(this.label1);
             this.Name = "Form2";
@@ -77,5 +100,7 @@ namespace Gestion
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listClient;
+        private System.Windows.Forms.ComboBox listVille;
+        private System.Windows.Forms.Label label2;
     }
 }
