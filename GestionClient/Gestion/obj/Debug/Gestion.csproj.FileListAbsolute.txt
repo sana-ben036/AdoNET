@@ -8,3 +8,5 @@ C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug
 C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
 C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug\Gestion.exe
 C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug\Gestion.pdb
+C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug\Gestion.Form2.resources
+C:\Users\youcode\source\repos\sana-ben036\AdoNET\GestionClient\Gestion\obj\Debug\Gestion.MenuForm.resources
